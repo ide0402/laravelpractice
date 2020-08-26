@@ -16,11 +16,15 @@
         <div class = "posts">
             @foreach ($posts as $post)
                 <div class = "post">
+                <a href="{{ action('PostController@show', $post->id) }}">
                     <h2 class = "title">{{ $post->title }}</h2>
+                </a>
                     <p class = "body">{{ $post->body }}</p>
                 </div>
             @endforeach
         </div>
-        
+        <div class='paginate'>
+             {{ $posts->links() }}
+        </div>
     </body>
 </html>

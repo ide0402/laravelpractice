@@ -12,5 +12,11 @@ class PostController extends Controller
         // return $post->get();
         return view('index')->with(['posts' => $post->getByLimit()]);
     }
+
+    public function show(Post $id)
+    {
+        \Log::info($id."コントローラー");
+        return view('detail')->with(['post' => $id]);
+    }
     //
 }
