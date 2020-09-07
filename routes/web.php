@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PostController@index');
+Route::get('/', 'PostController@index')->name('top');;
 
 Route::get('/posts/detail/{id}', 'PostController@show');
 // Route::get('/', function () {
 //     return view('index');
 // });
+Route::get('/posts/entry', 'PostController@create')->name('entry');
+Route::post('/posts/entry', 'PostController@store')->name('store');
+
+// Route::get('/posts/entry', 'PostController@create');

@@ -26,5 +26,10 @@
         <div class='paginate'>
              {{ $posts->links() }}
         </div>
+        <div class="mb-4">
+            <a href="{{ route('entry') }}" class="btn btn-primary">
+                投稿を新規作成する
+            </a>
+        </div>
     </body>
 </html>

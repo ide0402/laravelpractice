@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Validator;
 
 class PostController extends Controller
 {
@@ -15,8 +16,21 @@ class PostController extends Controller
 
     public function show(Post $id)
     {
-        \Log::info($id."コントローラー");
         return view('detail')->with(['post' => $id]);
     }
-    //
+    
+    public function create()
+    {
+        return view('entry');
+    }
+
+    public function store(Request $request)
+    {
+        $this -> validate($request,Post::$rules); 
+        $post = new Post;
+        $form = $request -> all();
+        $post -> fill($form) -> save();
+        return redirect('/');
+
+    }
 }
